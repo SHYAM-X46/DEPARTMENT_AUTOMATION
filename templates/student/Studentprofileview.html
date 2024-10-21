@@ -1,0 +1,93 @@
+{% extends 'student/studenthome.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/student_studentprofileview">
+  <table width="200" border="1" align="center">
+    <tr>
+      <th scope="row">First Name:</th>
+      <td><input name="studentfname" type="text" value="{{ stu.first_name }}"/></td>
+    </tr>
+    <tr>
+      <th scope="row">Second Name:</th>
+      <td><input name="studentsname" type="text" value="{{ stu.second_name }}"/></td>
+    </tr>
+    <tr>
+      <th scope="row">Father's Name:</th>
+      <td><input name="studentfathersname" type="text" value="{{ stu.father_name }}"/></td>
+    </tr>
+    <tr>
+      <th scope="row">Mother's Name:</th>
+      <td><input name="studentmothersname" type="text" value="{{ stu.mother_name }}"/></td>
+    </tr>
+      <tr>
+      <th scope="row">Register No:</th>
+      <td><input name="reg_no" type="text" value="{{ stu.reg_no }}"/></td>
+    </tr>
+    <tr>
+    <th scope="row">House Name:</th>
+    <td><input type="text" value="{{ stu.house_name }}" name="house_name" id="house_name" /></td></td>
+  </tr>
+  <tr>
+    <th scope="row">Place:</th>
+    <td><input name="place" value="{{ stu.place }}" type="text" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Post:</th>
+    <td><label for="post"></label>
+      <input type="text" value="{{ stu.post }}" name="post" id="post" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Pin:</th>
+    <td><label for="pin"></label>
+      <input type="text" value="{{ stu.pin }}" name="pin" id="pin" /></td>
+  </tr>
+  <tr>
+    <th scope="row">State:</th>
+    <td><label for="state"></label>
+     <input type="text" value="{{ stu.state }}" name="state" id="state" /></td>
+  </tr>
+  <tr>
+    <th scope="row">District:</th>
+    <td><label for="district"></label>
+      <input type="text" value="{{ stu.district }}" name="district" id="district" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Gender:</th>
+    <td><p>
+      <label>
+        <input type="radio" name="gender" value="MALE" id="gender_0" {% if stu.gender == "male" %}checked {% endif %} />
+        male</label>
+      <br />
+      <label>
+        <input type="radio" name="gender" value="FEMALE" id="gender_1" {% if stu.gender == "female" %}checked {% endif %}/>
+        female</label>
+      <br />
+    </p></td>
+  </tr>
+  <tr>
+    <th scope="row">Phone Number:</th>
+    <td><label for="studentphonenumber"></label>
+      <input type="text" name="studentphonenumber" value="{{ stu.phone_no }}" id="teacherphonenumber" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Email:</th>
+    <td><label for="studentsemail"></label>
+      <input type="text" name="studentsmail" value="{{ stu.email }}" id="studentsemail" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Profile picture:</th>
+    <td><img src="{{ stu.profile_pic }}" width="100" height="100">
+     </td>
+  </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

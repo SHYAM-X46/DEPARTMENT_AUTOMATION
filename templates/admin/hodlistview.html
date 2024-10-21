@@ -1,0 +1,37 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><form action="" method="get"><table width="200" border="1" class="table table-bordered text-black" style="background-color: #99ccff">
+  <tr>
+    <th scope="col">slno</th>
+    <th scope="col">Department</th>
+    <th scope="col">Name</th>
+    <th scope="col">Address</th>
+    <th scope="col">Gender</th>
+    <th scope="col">Phone Number</th>
+    <th scope="col">Email ID</th>
+    <th scope="col">Profile Picture </th>
+  </tr>
+    {% for i in somu %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+      <td>{{ i.DEPARTMENT.depname }}</td>
+    <td>{{ i.TEACHERS.name }}</td>
+    <td>{{ i.TEACHERS.house_name }}<br>{{ i.place }}<br>{{ i.post }}<br>{{ i.district }}<br>{{ i.state }}<br>{{ i.pin }}</td>
+    <td>{{ i.TEACHERS.gender }}</td>
+    <td>{{ i.TEACHERS.phone_no }}</td>
+    <td>{{ i.TEACHERS.email }}</td>
+    <td><img src="{{ i.TEACHERS.profile_pic }}" width="100px" height="100px"> </td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
+{% endblock %}
+

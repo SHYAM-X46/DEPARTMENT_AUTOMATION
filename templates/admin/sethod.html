@@ -1,0 +1,36 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><form action="/admin_sethod_post" method="post"><table width="200" border="1" class="table table-bordered text-black" style="background-color: #99ccff">
+    {% csrf_token %}
+    <tr>
+    <th scope="col">DepartmentName:</th>
+    <th scope="col"><label for="deptname"></label>
+      <select name="deptname" id="deptname">
+          {% for i in deep %}
+        <option value="{{ i.id }}">{{ i.depname }}</option>
+          {% endfor %}
+      </select></th>
+  </tr>
+  <tr>
+    <th scope="col">TeachersName:</th>
+    <th scope="col"><label for="teachersname"></label>
+      <select name="hodsname" id="hodsname">
+        {% for i in tee %}
+        <option value="{{ i.id }}">{{ i.name }}</option>
+          {% endfor %}
+      </select></th>
+  </tr>
+  <tr>
+    <td align="center" colspan="2"><input type="submit" name="sethod" id="sethod" value="Set HOD" class="btn btn-success"/></td>
+  </tr>
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

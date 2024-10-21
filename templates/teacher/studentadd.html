@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/student_studentadd">
+    {% csrf_token %}
+  <table width="200" border="1">
+    <tr>
+      <th scope="row">First Name:</th>
+      <td><input name="studentfname" type="text" style="width:100%"/></td>
+    </tr>
+    <tr>
+      <th scope="row">Second Name:</th>
+      <td><input name="studentsname" type="text" style="width:100%"/></td>
+    </tr>
+    <tr>
+      <th scope="row">Father's Name:</th>
+      <td><input name="studentfathersname" type="text" style="width:100%"/></td>
+    </tr>
+    <tr>
+      <th scope="row">Mother's Name:</th>
+      <td><input name="studentmothersname" type="text" style="width:100%"/></td>
+    </tr>
+    <tr>
+    <tr>
+    <th scope="row">House Name:</th>
+    <td><textarea name="housename" cols=""  style="width:100%" rows=""></textarea></td>
+  </tr>
+  <tr>
+    <th scope="row">Place:</th>
+    <td><input name="place" style="width:100%" type="text" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Post:</th>
+    <td><label for="post"></label>
+      <input type="text" style="width:100%" name="post" id="post" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Pin:</th>
+    <td><label for="pin"></label>
+      <input type="text" style="width:100%" name="pin" id="pin" /></td>
+  </tr>
+  <tr>
+    <th scope="row">State:</th>
+    <td><label for="state"></label>
+      <select name="state" style="width:100%" id="state">
+      </select></td>
+  </tr>
+  <tr>
+    <th scope="row">District:</th>
+    <td><label for="district"></label>
+      <select name="district" style="width:100%" id="district">
+      </select></td>
+  </tr>
+  <tr>
+    <th scope="row">Password:</th>
+    <td><label for="password"></label>
+      <input type="text" name="password" style="width:100%" id="password" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Gender:</th>
+    <td><p>
+      <label>
+        <input type="radio" name="gender" value="M" id="gender_0" />
+        male</label>
+      <br />
+      <label>
+        <input type="radio" name="gender" value="F" id="gender_1" />
+        female</label>
+      <br />
+    </p></td>
+  </tr>
+  <tr>
+    <th scope="row">Phone Number:</th>
+    <td><label for="studentphonenumber"></label>
+      <input type="text" name="studentphonenumber" style="width:100%" id="teacherphonenumber" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Email:</th>
+    <td><label for="studentsemail"></label>
+      <input type="text" name="studentsmail" style="width:100%" id="studentsemail" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Add Profile picture:</th>
+    <td><label for="stpfp"></label>
+      <input type="file" name="stpfp" id="stpfp" /></td>
+  </tr>
+  <tr>
+  <td colspan="2" align="center"> <div><input name="add" type="submit" value="Add" /></div>
+  </td></tr>
+  
+  </table>
+</form>
+</body>
+</html>

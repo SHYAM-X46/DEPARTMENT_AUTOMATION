@@ -1,0 +1,93 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><form action="/admin_addteacher_post" method="post" enctype="multipart/form-data"><table width="200" border="1"  class="table table-bordered text-black" style="background-color: #99ccff">
+    {% csrf_token %}
+  <tr>
+    <th scope="row">Name:</th>
+    <td><input name="Teachername" required class="form-control" type="text" style="width:100%" /></td>
+  </tr>
+  <tr>
+    <th scope="row">House Name:</th>
+    <td><textarea name="housename" required cols=""  style="width:100%" rows="" ></textarea></td>
+  </tr>
+  <tr>
+    <th scope="row">Place:</th>
+    <td><input name="place" style="width:100%" required type="text" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Post:</th>
+    <td><label for="post"></label>
+      <input type="text" style="width:100%" name="post" id="post" required /></td>
+  </tr>
+  <tr>
+    <th scope="row">Pin:</th>
+    <td><label for="pin"></label>
+      <input type="text" pattern="[6][0-9]{5}" style="width:100%" name="pin" id="pin" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">State:</th>
+    <td><label for="State"></label>
+      <input type="text" style="width:100%" name="State" id="State" required /></td>
+  </tr>
+  <tr>
+    <th scope="row">District:</th>
+    <td><label for="District"></label>
+      <input type="text" style="width:100%" name="District" id="District" required /></td>
+  </tr>
+  <tr>
+    <th scope="row">Password:</th>
+    <td><label for="password"></label>
+      <input type="password" name="teacherspassword" required style="width:100%" id="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"  /></td>
+  </tr>
+  <tr>
+    <th scope="row">Gender:</th>
+    <td><p>
+      <label>
+        <input type="radio" name="gender" value="Male" id="gender_0" />
+        male</label>
+      <br />
+      <label>
+        <input type="radio" name="gender" value="Female" id="gender_1" />
+        female</label>
+      <br />
+    </p></td>
+  </tr>
+  <tr>
+    <th scope="row">Phone Number:</th>
+    <td><label for="teacherphonenumber"></label>
+      <input type="text" name="teacherphonenumber" style="width:100%" id="teacherphonenumber" pattern="^[6789][0-9]{9}$" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">Email:</th>
+    <td><label for="teachersemail"></label>
+      <input type="email" name="teachersemail" style="width:100%" id="teachersemail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">Add Profile picture:</th>
+    <td><label for="tpfp"></label>
+      <input type="file" name="tpfp" id="tpfp" /></td>
+  </tr>
+    <tr>
+    <th scope="col">DepartmentName:</th>
+    <th scope="col"><label for="deptname"></label>
+      <select name="deptname" id="deptname">
+          {% for i in deep %}
+        <option value="{{ i.id }}">{{ i.depname }}</option>
+          {% endfor %}
+      </select></th>
+  </tr>
+  <tr>
+  <td colspan="2" align="center"> <div><input class="btn btn-dark" name="add" type="submit" value="Add" class="btn btn-success" /></div>
+  </td></tr>
+</table>
+</form>
+</body>
+</html>
+{% endblock %}
+

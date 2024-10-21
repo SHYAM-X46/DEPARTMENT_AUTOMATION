@@ -1,0 +1,32 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="/teacher_viewfeedback" method="get">
+<table class="table table-active" class="table table-bordered text-black" style="background-color: #99ccff" align="center">
+ <tr>
+    <th scope="col">Id</th>
+    <th scope="col">studentname</th>
+    <th scope="col">feedback</th>
+    <th scope="col">date</th>
+
+  </tr>
+        {% for i in hello %}
+  <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.STUDENTS.first_name }}&nbsp;{{ i.STUDENTS.second_name }}</td>
+    <td>{{ i.feedback }}</td>
+    <td>{{ i.date }}</td>
+  </tr>
+    {% endfor %}
+</table>
+
+</form>
+</body>
+</html>
+{% endblock %}

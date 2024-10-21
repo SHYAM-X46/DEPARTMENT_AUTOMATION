@@ -1,0 +1,57 @@
+{% extends 'hod/hodhome.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><form action="/hod_subject_allocation_post/{{ id }}" method="post"><table width="200" border="1" align="center">
+    {% csrf_token %}
+  <tr>
+    <th scope="row">Batch name</th>
+    <td><select name="batchs">
+            {% for i in batch %}
+
+      <option value="{{ i.id }}">{{ i.batch_name }}</option>
+                  {% endfor %}
+
+    </select></td>
+  </tr>
+<tr>
+    <th scope="row">Semester</th>
+    <td><select name="sem">
+                    {% for i in subs %}
+      <option value="{{ i.id }}">{{ i.semester }}</option>
+                          {% endfor %}
+
+    </select></td>
+  </tr>
+<tr>
+    <th scope="row">Subject name</th>
+    <td><select name="sub">
+                            {% for i in subs %}
+
+      <option value="{{ i.id }}">{{ i.subject_name }}</option>
+                                  {% endfor %}
+
+    </select></td>
+  </tr>
+
+<tr>
+    <th scope="row">Teacher name</th>
+    <td><select name="teacher">
+                                    {% for i in teach %}
+
+      <option value="{{ i.id }}">{{ i.name }}</option>
+                                          {% endfor %}
+
+    </select></td>
+  </tr>
+  <tr><td colspan="2" align="center"><input name="subjectallocateteacher" value="allocate" type="submit" class="btn btn-success"/></td></tr>
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><form action="/admin_subjectlistview" method="get"><table width="200" border="1" class="table table-bordered text-black" style="background-color: #99ccff">
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">SubjectName</th>
+      <th scope="col">Sem</th>
+    
+  </tr>
+    {% for i in sibu %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.subject_name }}</td>
+      <td>{{ i.semester }}</td>
+    <td><a href="/admin_subjectedit/{{ i.id }}#abc" class="btn btn-success">Edit</a></td>
+    <td><a href="/admin_subjectdelet/{{ i.id }}/{{ i.COURSE.id }}" class="btn btn-danger">Delete</a></td>
+    
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
+{% endblock %}
+

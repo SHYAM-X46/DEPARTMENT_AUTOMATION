@@ -1,0 +1,36 @@
+{% extends 'hod/hodhome.html' %}
+{% block body %}
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><form action="" method="get"><table width="200" border="1" class="table table-bordered text-black" align="center">
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Name</th>
+    <th scope="col">Address</th>
+    <th scope="col">Gender</th>
+    <th scope="col">Phone Number</th>
+    <th scope="col">Email ID</th>
+    <th scope="col">Profile Picture </th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.name }}</td>
+    <td>{{ i.house_name }}<br>{{ i.place }}<br>{{ i.post }}<br>{{ i.district }}<br>{{ i.state }}<br>{{ i.pin }}</td>
+    <td>{{ i.gender }}</td>
+    <td>{{ i.phone_no }}</td>
+    <td>{{ i.email }}</td>
+    <td><img src="{{ i.profile_pic }}" width="100px" height="100px"> </td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
+{% endblock %}
+

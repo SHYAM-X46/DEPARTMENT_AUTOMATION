@@ -1,0 +1,94 @@
+{% extends 'hod/hodhome.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/hod_hodstudentprofileview">
+{% csrf_token %}
+  <table width="200" border="1" align="center"  class="table table-bordered text-black">
+{#    <tr>#}
+{#    <th scope="row">DepartmentName</th>#}
+{#    <td><select name="depsa">#}
+{#        {% for i in saa %}#}
+{#        <option value="{{ i.id }}">{{ i.depname }}</option>#}
+{#        {% endfor %}#}
+{#    </select></td>#}
+{#  </tr>#}
+    <tr>
+    <th scope="row">CourseName</th>
+    <td><select name="crss">
+        {% for i in sula %}
+        <option value="{{ i.id }}">{{ i.course }}</option>
+        {% endfor %}
+    </select></td>
+  </tr>
+    <tr>
+    <th scope="row">BatchName</th>
+    <td><select name="batchh">
+        {% for i in abc %}
+        <option value="{{ i.id }}">{{ i.batch_name }}</option>
+        {% endfor %}
+    </select></td>
+  </tr>
+  <tr><td colspan="2" align="center"><input name="studentview" value="Submit" type="submit" class="btn btn-success" /></td></tr>
+    <tr>
+      <th scope="row">slno:</th>
+      <th scope="row">First Name:</th>
+      <th scope="row">Second Name:</th>
+      <th scope="row">Father's Name:</th>
+      <th scope="row">Mother's Name:</th>
+    <th scope="row">House Name:</th>
+    <th scope="row">Place:</th>
+    <th scope="row">Post:</th>
+    <th scope="row">Pin:</th>
+    <th scope="row">State:</th>
+    <th scope="row">District:</th>
+    <th scope="row">Gender:</th>
+    <th scope="row">Phone Number:</th>
+    <th scope="row">Email:</th>
+    <th scope="row">Aadhar Number:</th>
+    <th scope="row">Register Number:</th>
+    <th scope="row">Identification Mark:</th>
+    <th scope="row">Joined clubs:</th>
+    <th scope="row">Blood Group:</th>
+    <th scope="row">License Number(optional):</th>
+    <th scope="row">Discription/About:</th>
+  <th scope="row">Profile picture:</th>
+  </tr>
+      {% for i in sugu %}
+  <tr>
+  <td>{{ forloop.counter }}</td>
+  <td>{{ i.first_name }}</td>
+      <td>{{ i.second_name }}</td>
+      <td>{{ i.father_name }}</td>
+      <td>{{ i.mother_name }}</td>
+      <td>{{ i.house_name }}</td>
+    <td>{{ i.place }}</td>
+    <td>{{ i.post }}</td>
+    <td>{{ i.pin }}</td>
+    <td>{{ i.state }}</td>
+    <td>{{ i.district }}</td>
+    <td>{{ i.gender }}</td>
+    <td>{{ i.phone_no }}</td>
+    <td>{{ i.email }}</td>
+    <td>{{ i.aadhar_no }}</td>
+    <td>{{ i.reg_no }}</td>
+    <td>{{ i.identification_mark }}</td>
+    <td>{{ i.joined_clubs }}</td>
+    <td>{{ i.blood_group }}</td>
+    <td>{{ i.licence_no }}</td>
+    <td>{{ i.about }}</td>
+      <td><img src="{{ i.profile_pic }}" width="100px" height="100px"> </td>
+
+  </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}
